@@ -160,9 +160,9 @@ def generate_invoice(invoice_data,PO_number, extra_lines,path):
     page.mergePage(newPdf.getPage(0))
     output.addPage(page)
     if (PO_number):
-        filename = "{}-{}-{}-{}.pdf".format(invoice[6], invoice[7], "AZMUROWSKI", invoice[3])
+        filename = "{}-{}-{}-{}.pdf".format(invoice[6], invoice[7], "YOURNAME", invoice[3])
     else:
-        filename = "{}-{}-{}.pdf".format(invoice[6], "AZMUROWSKI", invoice[3])
+        filename = "{}-{}-{}.pdf".format(invoice[6], "YOURNAME", invoice[3])
 
     filename = path + "/" + filename
 
