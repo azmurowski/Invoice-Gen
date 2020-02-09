@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
-
+import csv
 from generate_pdf import *
 
 #-----------LOADS THE OUTPUT PATH-------------#
@@ -120,9 +120,11 @@ def loadAddresses(): # Loads addresses from the cvs
     file = open('addresses.csv','r')
     reader = csv.reader(file)
     addresses = {}
-
+    print(reader)
     for row in reader:
-        addresses[row[0]] = row[1::]
+        if row:
+            addresses[row[0]] = row[1::]
+
 
     file.close()
     return addresses
