@@ -94,7 +94,7 @@ def change_path():
 
 #---------------------------------------SPLASH SCREEN---------------------------------------------------#
 
-def splash(message):
+def splash(message, fontsize = 20):
     warning = tk.Toplevel(root, border = 0)
 
     s_w,s_h = 800,200
@@ -110,7 +110,7 @@ def splash(message):
     warning_canvas.bind('<Button-1>', lambda x :warning.destroy())
     x,y = warning_canvas.canvasx(400),warning_canvas.canvasx(100)
 
-    warning_canvas.create_text(x,y, text = message, font = 'Helvetica 20 bold', fill = 'white')
+    warning_canvas.create_text(x,y, text = message, font = 'Helvetica {} bold'.format(fontsize), fill = 'white')
     warning_canvas.create_text(x,y+85, text = 'Click to close', font = 'Helvetica 8', fill = 'white')
 
 
@@ -122,7 +122,7 @@ def loadAddresses(): # Loads addresses from the cvs
     addresses = {}
     print(reader)
     for row in reader:
-        if row:
+        if row and len(row)>1:
             addresses[row[0]] = row[1::]
 
 
@@ -209,6 +209,8 @@ def add_extra_lines_screen():
 
         global extra_lines
         extra_lines =  read
+        fontsize = 20-len(read)
+        splash('Items added: \n' + '\n'.join(['{} {} x {}'.format(x,y,z) for x,y,z in read]),fontsize)
         add_extra.destroy()
 
     done_button = {'text': 'Done', 'bg': '', 'fcl': 'white', 'size': 40, 'font': 'Helvetica 12 bold',
