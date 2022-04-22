@@ -13,7 +13,7 @@ Pillow-SIMD==6.0.0.post0
 pyasn1==0.4.8
 pyasn1-modules==0.2.7
 PyInstaller==4.0.dev0+8accaf1036
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 pywin32-ctypes==0.2.0
 reportlab==3.5.32
 requests==2.22.0
